@@ -2,15 +2,16 @@ Hive LLAP
 ===
 
 ***内容目录***
+1 hive llap该怎么部署
+2 注意事项
+3 llap初始化
+4 性能测试
+5 总结
+链接
 
-[TOC]
 
 > 从Hive llap特性的出现，分析作用、部署、使用细节问题，总结hive llap使用经验和注意事项。
 (From the appearance of the Hive llap feature, analyze the function, deployment, and use details, and summarize the experience and precautions of the hive llap)
-
->微信公众号：苏言论  
-理论联系实际，畅言技术与生活。
-
 
   LLAP是hive 2.0.0版本引入的新特性，hive官方称为(Live long and process)，hortonworks公司的CDH称为(low-latency analytical processing)，其实它们都是一样的，都是实现将数据预取、缓存到基于yarn运行的守护进程中，降低和减少系统IO和与HDFS DataNode的交互，具体的特性细节参考官方文档 [Hive llap](https://cwiki.apache.org/confluence/display/Hive/LLAP) (如果链接未生效，在文章后面的链接中获取)，但是***由于版本更新频繁和官方文档的维护不力因素，很多地方和使用上让人概念不清、正确和错误分不清***，特别是用CDH这样的集成套件，很多细节被忽略，本文一一来细说和总结各类问题。
 
